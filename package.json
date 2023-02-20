@@ -1,5 +1,5 @@
 {
-  "name": "sellmobile",
+  "name": "techbuyerz",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,9 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "13.1.6",
+    "@next-auth/mongodb-adapter": "^1.1.1",
+    "@sanity/client": "^3.2.0",
+    "@sanity/image-url": "^1.0.1",
+    "mongodb": "^4.14.0",
     "next": "13.1.6",
+    "next-auth": "^4.19.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-accessible-accordion": "^5.0.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.7.1",
+    "react-phone-number-input": "^3.2.19",
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "sass": "^1.58.0"
   }
 }

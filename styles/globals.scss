@@ -1,0 +1,996 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+// variables
+$primary-color: #e7b96a;
+$bg-color: #1a1818;
+$bg-border: #2f2f2f;
+$text-color: #fff;
+$light-border: #979797;
+
+// mixins
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+// general styles
+* {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 40px;
+  @include mobile {
+    font-size: 35px;
+  }
+}
+
+body {
+  background: $bg-color;
+  color: $text-color;
+}
+
+section {
+  padding: 100px 0;
+  margin: 0 0 0 20px;
+  @include mobile {
+    padding: 50px 0;
+  }
+}
+
+.none {
+  opacity: 0;
+  display: none;
+}
+
+.show {
+  opacity: 100;
+  display: block;
+}
+
+.btn {
+  color: $text-color;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  text-decoration: none;
+  border: 2px solid $primary-color;
+
+  &.active {
+    border: none;
+    background: $primary-color;
+  }
+
+  &:hover {
+    color: #1a1818;
+
+    background: $primary-color;
+  }
+}
+
+.sub {
+  font-size: 20px;
+  @include mobile {
+    font-size: 15px;
+  }
+  color: $light-border;
+}
+
+// real css
+
+nav {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: $bg-border 1px solid;
+
+  img {
+    width: 100px;
+    @include mobile {
+      width: 60px;
+    }
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    gap: 15px;
+    li {
+      a {
+        text-decoration: none;
+        color: $text-color;
+        font-weight: 600;
+        @include mobile {
+          font-size: 15px;
+        }
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+          color: $primary-color;
+        }
+
+        &.user {
+          display: flex;
+          gap: 5px;
+        }
+      }
+    }
+  }
+}
+
+.landing {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  @include mobile {
+    height: 100vh;
+    margin-left: 20px;
+    justify-content: center;
+    flex-direction: column;
+  }
+  height: 80vh;
+
+  .left {
+    width: 50%;
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  .checks {
+    display: flex;
+    gap: 10px;
+    color: $primary-color;
+    @include mobile {
+      flex-direction: column;
+      margin-top: 10px;
+    }
+    .check {
+      display: flex;
+      gap: 2px;
+      align-items: center;
+    }
+  }
+
+  .mobile {
+    display: none;
+    @include mobile {
+      display: block;
+    }
+  }
+
+  .btn {
+    margin: 40px 0;
+    text-align: center;
+    width: 90%;
+  }
+
+  .input {
+    position: relative;
+    .icon {
+      position: absolute;
+      top: 50%;
+      color: $light-border;
+      left: 10px;
+      transform: translateY(-50%);
+    }
+    input {
+      width: 70%;
+      padding: 20px 20px 20px 50px;
+      border: 2px solid $light-border;
+      border-radius: 42px;
+      margin: 20px 0;
+      color: $text-color;
+      background: $bg-border;
+      outline: none;
+      transition: border 0.5s ease-in-out;
+      @include mobile {
+        width: 70%;
+        padding: 20px 20px 20px 50px;
+      }
+
+      &:focus {
+        font-weight: 600;
+        border-color: $primary-color;
+      }
+    }
+  }
+
+  .or {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #b3b3b3;
+  }
+
+  .line {
+    width: 20%;
+    height: 1px;
+    background: $light-border;
+    margin: 20px 0;
+  }
+
+  .brands {
+    margin: 20px 0;
+    display: flex;
+    gap: 20px;
+  }
+
+  .more {
+    cursor: pointer;
+    color: $text-color;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+
+    @include mobile {
+      display: none;
+    }
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  @include mobile() {
+    .right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 80%;
+      }
+    }
+  }
+}
+
+.block {
+  width: 100px;
+  height: 100px;
+  display: grid;
+  border-radius: 10px;
+  background-color: $text-color;
+  padding: 10px 20px;
+  max-width: 400px;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &:hover {
+    background: $primary-color;
+  }
+}
+
+.seller {
+  h2 {
+    color: $text-color;
+    font-weight: 500;
+    text-align: center;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.sell-block {
+  display: grid;
+  border-radius: 10px;
+  background-color: $text-color;
+  place-items: center;
+  cursor: pointer;
+  width: 200px;
+  height: 200px;
+  border: rgba(174, 174, 174, 0.6) 2px solid;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    background: $primary-color;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+}
+
+.landing .block:first-child {
+  padding: 10px;
+}
+
+::selection {
+  background: $primary-color;
+  color: $text-color;
+}
+
+.working {
+  img {
+    filter: invert(1);
+  }
+  @include mobile {
+    margin: 0 20px;
+  }
+
+  .steps {
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    @include mobile {
+      flex-direction: column;
+      gap: 20px;
+    }
+    align-items: center;
+    margin: 50px 0;
+    align-items: center;
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      h3 {
+        font-size: 30px;
+      }
+
+      p {
+        color: $light-border;
+        text-align: justify;
+      }
+    }
+  }
+}
+
+.accordion {
+  border: 1px solid rgba($color: $bg-color, $alpha: 0.1);
+  margin: 50px 50px;
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
+}
+
+.accordion__item + .accordion__item {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+  background-color: $bg-border;
+  color: $text-color;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.accordion__button:hover {
+  background-color: $bg-color;
+}
+
+.accordion__button:before {
+  display: inline-block;
+  content: "";
+  height: 10px;
+  width: 10px;
+  margin-right: 12px;
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded="true"]::before,
+.accordion__button[aria-selected="true"]::before {
+  transform: rotate(45deg);
+}
+
+.hidden {
+  display: none;
+}
+
+.accordion__panel {
+  padding: 20px;
+  animation: fadein 0.35s ease-in;
+}
+
+@keyframes fadein {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+.working {
+  .workList {
+    padding: 50px 0;
+    .works {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+
+      &:first-child {
+        margin-bottom: 50px;
+      }
+    }
+  }
+}
+
+.work {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  p {
+    color: rgba($color: $text-color, $alpha: 0.7);
+  }
+}
+
+footer {
+  padding-bottom: 30px;
+  h1 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      width: 100%;
+    }
+  }
+
+  .links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 10px;
+    }
+    a {
+      text-decoration: none;
+      color: $text-color;
+      font-size: 20px;
+      &:after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: $primary-color;
+        transition: width 0.3s;
+      }
+      &:hover:after {
+        width: 100%;
+        transition: width 0.3s;
+      }
+    }
+    margin-bottom: 50px;
+  }
+
+  .footer {
+    p {
+      text-align: center;
+      color: $light-border;
+      font-size: 15px;
+    }
+  }
+}
+
+.sell {
+  .sell-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin: 50px 0;
+    place-items: center;
+
+    .phone-grid {
+      h2 {
+        font-weight: 500;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+.phone-page {
+  .flex {
+    display: flex;
+    padding: 50px 0;
+    justify-content: space-around;
+    align-items: center;
+
+    @include mobile {
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .first-page {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 30px;
+
+      h3 {
+        font-size: 1.4rem;
+
+        text-transform: uppercase;
+      }
+
+      @include mobile {
+        align-items: center;
+
+        h3 {
+          font-size: 2rem;
+        }
+        p {
+          text-align: center;
+          font-size: 1rem;
+        }
+      }
+
+      .btns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .price {
+        margin: 10px 0;
+        font-size: 1.2rem;
+      }
+
+      .btn {
+        text-align: center;
+      }
+    }
+
+    .second-page {
+      width: 40%;
+      h4 {
+        font-weight: 500;
+        font-size: 1.2rem;
+        margin-bottom: 50px;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  .value {
+    a {
+      color: $bg-color;
+    }
+
+    p {
+      margin-top: 20px;
+      color: rgb(252, 69, 69);
+      font-weight: 500;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  height: 70vh;
+  h1 {
+    font-size: 10rem;
+    color: $primary-color;
+  }
+  h2 {
+    font-size: 2rem;
+    color: $text-color;
+  }
+
+  a {
+    text-decoration: none;
+    color: $text-color;
+    font-size: 20px;
+    &:after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: $primary-color;
+      transition: width 0.3s;
+    }
+    &:hover:after {
+      width: 100%;
+      transition: width 0.3s;
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: visible;
+    display: flex;
+  }
+
+  .modal-content {
+    background: $bg-color;
+    width: 80%;
+    overflow-y: scroll;
+    height: 80%;
+    border-radius: 10px;
+
+    @include mobile {
+      width: 100%;
+      height: 100%;
+    }
+
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .modal-grid {
+      gap: 30px;
+      margin: 50px 0;
+      place-items: center;
+
+      .phone-grid {
+        h2 {
+          font-weight: 500;
+          font-size: 20px;
+          text-align: center;
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .flex {
+      display: flex;
+      padding: 50px 0;
+      justify-content: space-around;
+      align-items: center;
+
+      @include mobile {
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .first-page {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 30px;
+
+        h3 {
+          font-size: 1.4rem;
+
+          text-transform: uppercase;
+        }
+
+        @include mobile {
+          align-items: center;
+
+          h3 {
+            font-size: 2rem;
+          }
+          p {
+            text-align: center;
+            font-size: 1rem;
+          }
+        }
+
+        .btns {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+        }
+
+        .price {
+          margin: 10px 0;
+          font-size: 1.2rem;
+        }
+
+        .btn {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.payment {
+  display: flex;
+  margin: 20px 0;
+  justify-content: center;
+
+  /* Visually hide the actual radio—we'll use the label for the visual "button" */
+  [type="radio"] {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: auto;
+    margin: 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+    transition: all 0.5s ease-in-out;
+  }
+
+  label {
+    display: grid;
+    outline: none;
+    cursor: pointer;
+
+    place-content: center;
+    border-left: 1px solid;
+    padding: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    background-color: grey;
+    color: white;
+    transition: all 0.5s ease-in-out;
+  }
+
+  label:first-of-type {
+    border-left: 0;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+
+  label:last-of-type {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+
+  /* Style visible label button using the associated input's state */
+  [type="radio"]:checked + label {
+    background-color: $primary-color;
+    color: $bg-color;
+  }
+
+  [type="radio"]:focus + label {
+    box-shadow: inset 0 0 4px hsl(0deg 0% 0% / 0.8);
+  }
+
+  /* Don't show focus styles when user interacts with a mouse */
+  [type="radio"]:focus:not(:focus-visible) + label {
+    box-shadow: none;
+  }
+}
+
+@media (min-width: 40rem) {
+  /* Spread the buttons out on desktop */
+  .payment {
+    column-gap: clamp(0.25rem, 0.25rem + 2vw, 1rem);
+    row-gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  label {
+    border-radius: 999px !important;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    label {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    input {
+      width: 100%;
+      height: 40px;
+      background: $bg-color;
+      color: white;
+      border: 1px solid $light-border;
+      border-radius: 5px;
+      padding: 0 10px;
+      outline: none;
+      font-size: 1rem;
+      transition: all 0.5s ease-in-out;
+      &:focus {
+        border: 1px solid $primary-color;
+      }
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      border: 1px solid $primary-color;
+      border-radius: 5px;
+      padding: 10px;
+      outline: none;
+      font-size: 1rem;
+      transition: all 0.5s ease-in-out;
+      &:focus {
+        border: 1px solid $primary-color;
+      }
+    }
+  }
+  .btn {
+    border: 1px solid $primary-color;
+    border-radius: 5px;
+    background: $primary-color;
+    color: $bg-color;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      background: $bg-color;
+      color: $primary-color;
+      border-color: $text-color;
+    }
+  }
+
+  a {
+    color: $primary-color;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      color: $light-border;
+    }
+  }
+}
+
+.sign-in {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    border: 1px solid $primary-color;
+    border-radius: 5px;
+    background: $primary-color;
+    color: $bg-color;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      background: $bg-color;
+      color: $primary-color;
+      border-color: $text-color;
+    }
+
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: $primary-color;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      color: $light-border;
+    }
+  }
+}
+
+.sell h1,
+.sub {
+  margin-left: 20px;
+}
+
+.sell h1 {
+  margin-top: 20px;
+}
