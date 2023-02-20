@@ -1,11 +1,8 @@
-import Footer from "@/resuable/Footer";
-import Navbar from "@/resuable/Navbar";
 import React, { useEffect, useState } from "react";
-import { client, urlFor } from "@/pages/lib/client";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { db } from "@/pages/lib/firebase-config";
+import { db } from "@/lib/firebase-config";
 import { addDoc, collection } from "firebase/firestore";
 
 const PhoneModal = ({ price, phoneName, varientSelected }) => {
@@ -103,7 +100,7 @@ const PhoneModal = ({ price, phoneName, varientSelected }) => {
           <p className="sub">You are buying: {phoneName}</p>
 
           <div className="payment">
-            <input type="radio" name="payment" id="paypal" />
+            <input type="radio" name="payment" id="paypal" checked />
             <label htmlFor="paypal">Paypal</label>
             <input type="radio" name="payment" id="check" />
             <label htmlFor="check">Check</label>

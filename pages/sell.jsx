@@ -1,6 +1,6 @@
 import SellGird from "@/components/sell/grid";
 import Footer from "@/resuable/Footer";
-import { client } from "./lib/client";
+import { client } from "../lib/client";
 import Navbar from "@/resuable/Navbar";
 import React from "react";
 

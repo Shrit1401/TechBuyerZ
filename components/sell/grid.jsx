@@ -1,4 +1,4 @@
-import { urlFor } from "@/pages/lib/client";
+import { urlFor } from "@/lib/client";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { brands } from "../data";

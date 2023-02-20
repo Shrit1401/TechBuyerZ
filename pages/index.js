@@ -1,4 +1,4 @@
-import { client } from "@/pages/lib/client";
+import { client } from "@/lib/client";
 import HomePage from "./HomePage";
 
 export default function Home({ faqs }) {

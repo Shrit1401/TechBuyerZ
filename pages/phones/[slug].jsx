@@ -1,7 +1,7 @@
 import Footer from "@/resuable/Footer";
 import Navbar from "@/resuable/Navbar";
 import React, { useEffect, useState } from "react";
-import { client, urlFor } from "@/pages/lib/client";
+import { client, urlFor } from "@/lib/client";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
