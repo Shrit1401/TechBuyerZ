@@ -5,6 +5,8 @@ import { client, urlFor } from "@/pages/lib/client";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { db } from "@/pages/lib/firebase-config";
+import { addDoc, collection } from "firebase/firestore";
 
 const PhoneModal = ({ price, phoneName, varientSelected }) => {
   const [phoneValue, setPhoneValue] = useState();
@@ -32,38 +34,49 @@ const PhoneModal = ({ price, phoneName, varientSelected }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const response = await fetch("/api/create-order", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          phoneName,
-          price,
+      const docRef = await addDoc(collection(db, "orders"), {
+        phoneName: phoneName,
+        price: price,
 
-          varientSelected,
+        varientSelected: varientSelected,
 
-          name,
-          email,
-          phoneValue,
-          paymentMethod,
-          address,
-          city,
-          state,
-          postCode,
-          paypalAdress,
-          checkAdress,
-        }),
+        name: name,
+        email: email,
+        phoneValue: phoneValue,
+        paymentMethod: paymentMethod,
+        address: address,
+        city: city,
+        state: state,
+        postCode: postCode,
+        paypalAdress: paypalAdress,
+        checkAdress: checkAdress,
+        status: "pending",
+        date: new Date().toLocaleDateString(),
       });
-
-      const result = await response.json();
-      setMessage(result.message);
-    } catch (e) {
-      console.error(e);
-      setMessage("Failed to create order");
+    } catch (error) {
+      console.log(error);
     }
+
+    setMessage("Order Placed");
   };
+
+  //  phoneName,
+  //         price,
+
+  //         varientSelected,
+
+  //         name,
+  //         email,
+  //         phoneValue,
+  //         paymentMethod,
+  //         address,
+  //         city,
+  //         state,
+  //         postCode,
+  //         paypalAdress,
+  //         checkAdress,
 
   const [message, setMessage] = useState("");
 

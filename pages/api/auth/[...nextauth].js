@@ -1,7 +1,5 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
-import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
-import clientPromise from "@/pages/lib/mongodb";
 import FacebookProvider from "next-auth/providers/facebook";
 
 export const authOptions = {
@@ -26,8 +24,6 @@ export const authOptions = {
   pages: {
     signIn: "/auth/signin",
   },
-
-  adapter: MongoDBAdapter(clientPromise),
 };
 
 export default NextAuth(authOptions);

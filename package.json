@@ -9,10 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next-auth/mongodb-adapter": "^1.1.1",
     "@sanity/client": "^3.2.0",
     "@sanity/image-url": "^1.0.1",
-    "mongodb": "^4.14.0",
+    "firebase": "^9.17.1",
     "net": "^1.0.2",
     "next": "13.1.6",
     "next-auth": "^4.19.2",
