@@ -1,21 +1,23 @@
-import { client } from "@/lib/client";
-import HomePage from "./HomePage";
+import Faq from "@/components/Faq";
+import Landing from "@/components/Landing";
+import Why from "@/components/Why";
+import Working from "@/components/Working";
+import Footer from "@/resuable/Footer";
+import Navbar from "@/resuable/Navbar";
+import React from "react";
 
-export default function Home({ faqs }) {
+export default function Home() {
   return (
     <>
       <main>
-        <HomePage faqs={faqs} />
+        <Navbar />
+        <Landing />
+        <Working />
+        <Faq />
+
+        <Why />
+        <Footer />
       </main>
     </>
   );
 }
-
-export const getServerSideProps = async () => {
-  const query = '*[_type == "faqs"]';
-  const faqs = await client.fetch(query);
-
-  return {
-    props: { faqs },
-  };
-};

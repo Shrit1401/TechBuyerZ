@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { db } from "@/lib/firebase-config";
+import db from "@/lib/firebase-config";
 import { addDoc, collection } from "firebase/firestore";
 
 const PhoneModal = ({ price, phoneName, varientSelected }) => {

@@ -27,3 +27,29 @@ export const phoneCompany = [
     };
   }),
 ];
+
+// make a array for faq , question and answer
+
+export const faq = [
+  {
+    question: "What is TechBuyerZ?",
+    answer:
+      "TechBuyerZ is a platform that helps you to buy the best tech products at the best price. We have a team of experts who research and review the products and then recommend the best ones to you.",
+  },
+  {
+    question: "How does TechBuyerZ work?",
+    answer:
+      "TechBuyerZ is a platform that helps you to buy the best tech products at the best price. We have a team of experts who research and review the products and then recommend the best ones to you.",
+  },
+  {
+    question: "How does TechBuyerZ work?",
+
+    answer:
+      "TechBuyerZ is a platform that helps you to buy the best tech products at the best price. We have a team of experts who research and review the products and then recommend the best ones to you.",
+  },
+  {
+    question: "How does TechBuyerZ work?",
+    answer:
+      "TechBuyerZ is a platform that helps you to buy the best tech products at the best price. We have a team of experts who research and review the products and then recommend the best ones to you.",
+  },
+];

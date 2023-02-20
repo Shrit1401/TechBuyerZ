@@ -6,13 +6,14 @@ import {
   AccordionItemButton,
   AccordionItemPanel,
 } from "react-accessible-accordion";
+import { faq } from "./data";
 
-const Faq = ({ content }) => {
+const Faq = () => {
   return (
     <section className="faq ">
       <h1>FAQ</h1>
       <Accordion>
-        {content.map((item) => {
+        {faq.map((item) => {
           return (
             <AccordionItem>
               <AccordionItemHeading>
