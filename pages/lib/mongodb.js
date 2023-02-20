@@ -1,17 +1,14 @@
 import { MongoClient } from "mongodb";
 
-// fix Module not found: Can't resolve 'fs' server side next js
-
-if (typeof window === "undefined") {
-  global.window = {};
-}
-
 if (!process.env.MONGODB_URI) {
   throw new Error('Invalid/Missing environment variable: "MONGODB_URI"');
 }
 
 const uri = process.env.MONGODB_URI;
-const options = {};
+const options = {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+};
 
 let client;
 let clientPromise;
