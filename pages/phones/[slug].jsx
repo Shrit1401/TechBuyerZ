@@ -6,6 +6,14 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import PhoneModal from "@/components/phones/modal";
+import { FaInfoCircle } from "react-icons/fa";
+import {
+  brokenInfo,
+  damagedInfo,
+  mintInfo,
+  newInfo,
+  usedInfo,
+} from "@/components/data";
 
 const PhoneDetailsPage = ({ phone, phones }) => {
   const {
@@ -21,6 +29,7 @@ const PhoneDetailsPage = ({ phone, phones }) => {
   const [varientSelected, setvarientSelected] = useState("");
   const [errorVarient, setErrorVarient] = useState(false);
   const [price, setPrice] = useState("");
+  const [varientInfo, setVarientInfo] = useState("");
 
   const varientClicked = () => {
     const btns = document.querySelectorAll(".btns .btn");
@@ -91,6 +100,53 @@ const PhoneDetailsPage = ({ phone, phones }) => {
     });
   }, []);
 
+  useEffect(() => {
+    switch (varientSelected) {
+      case "New":
+        setVarientInfo(newInfo);
+        break;
+
+      case "Mint":
+        setVarientInfo(mintInfo);
+        break;
+
+      case "Used":
+        setVarientInfo(usedInfo);
+        break;
+
+      case "Damaged":
+        setVarientInfo(damagedInfo);
+        break;
+
+      case "Broken":
+        setVarientInfo(brokenInfo);
+        break;
+    }
+  }, [varientSelected]);
+
+  // tooltip
+
+  useEffect(() => {
+    const tooltip = document.querySelector(".tooltip");
+    const info = document.querySelector(".icon");
+
+    info.addEventListener("mouseover", () => {
+      tooltip.classList.add("show");
+    });
+
+    info.addEventListener("mouseout", () => {
+      tooltip.classList.remove("show");
+    });
+
+    tooltip.addEventListener("mouseover", () => {
+      tooltip.classList.add("show");
+    });
+
+    tooltip.addEventListener("mouseout", () => {
+      tooltip.classList.remove("show");
+    });
+  }, []);
+
   return (
     <div className="phone-page">
       <Navbar />
@@ -130,12 +186,29 @@ const PhoneDetailsPage = ({ phone, phones }) => {
             </div>
 
             <div className="price">
-              <p>
-                Price Range : <b>{price}</b>
-              </p>
-              <p>
-                Condtion: <b>{varientSelected}</b>
-              </p>
+              <div className="left">
+                <p>
+                  Price Range : <b>{price}</b>
+                </p>
+                <p>
+                  Condtion: <b>{varientSelected}</b>
+                </p>
+              </div>
+
+              <div className="right">
+                <div className="icon">
+                  <FaInfoCircle className="info" size={24} />
+                  <p className="sub">Info</p>
+                </div>
+
+                {/* tooltip  */}
+
+                <div className="tooltip">
+                  <p>
+                    <b>{varientSelected}</b>: {varientInfo}
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="value">

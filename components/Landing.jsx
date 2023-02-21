@@ -24,6 +24,7 @@ const Landing = () => {
             Free Doorstep Pickup
           </div>
         </div>
+
         <div className="brands" onClick={() => router.push("/sell")}>
           <Block
             key="apple"

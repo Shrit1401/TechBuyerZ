@@ -25,12 +25,32 @@ const PhoneModal = ({ price, phoneName, varientSelected }) => {
     payment.forEach((pay) => {
       pay.addEventListener("click", () => {
         setPaymentMethod(pay.id);
+
+        if (pay.id === "paypal") {
+          payment[1].classList.remove("active");
+          pay.classList.add("active");
+        } else {
+          payment[0].classList.remove("active");
+          pay.classList.add("active");
+        }
       });
     });
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (
+      !name ||
+      !email ||
+      !phoneValue ||
+      !address ||
+      !city ||
+      !state ||
+      !postCode
+    ) {
+      return alert("Please fill in all the fields");
+    }
 
     try {
       const docRef = await addDoc(collection(db, "orders"), {
@@ -59,22 +79,6 @@ const PhoneModal = ({ price, phoneName, varientSelected }) => {
     setMessage("Order Placed");
   };
 
-  //  phoneName,
-  //         price,
-
-  //         varientSelected,
-
-  //         name,
-  //         email,
-  //         phoneValue,
-  //         paymentMethod,
-  //         address,
-  //         city,
-  //         state,
-  //         postCode,
-  //         paypalAdress,
-  //         checkAdress,
-
   const [message, setMessage] = useState("");
 
   if (message) {
@@ -98,13 +102,6 @@ const PhoneModal = ({ price, phoneName, varientSelected }) => {
           <h1>Checkout</h1>
           <h3>Estimated Value: {price}</h3>
           <p className="sub">You are buying: {phoneName}</p>
-
-          <div className="payment">
-            <input type="radio" name="payment" id="paypal" checked />
-            <label htmlFor="paypal">Paypal</label>
-            <input type="radio" name="payment" id="check" />
-            <label htmlFor="check">Check</label>
-          </div>
 
           <form>
             <h2>Your Details</h2>
@@ -205,6 +202,12 @@ const PhoneModal = ({ price, phoneName, varientSelected }) => {
             </div>
 
             <h2>Payment Details</h2>
+            <div className="payment">
+              <input type="radio" name="payment" id="paypal" checked />
+              <label htmlFor="paypal">Paypal</label>
+              <input type="radio" name="payment" id="check" />
+              <label htmlFor="check">Check</label>
+            </div>
             {paymentMethod === "paypal" ? (
               <>
                 <div className="form-group">
