@@ -5,7 +5,13 @@ import "react-phone-number-input/style.css";
 import db from "@/lib/firebase-config";
 import { addDoc, collection } from "firebase/firestore";
 
-const PhoneModal = ({ price, phoneName, varientSelected }) => {
+const PhoneModal = ({
+  price,
+  phoneName,
+  varientSelected,
+  storageSelected,
+  networkSelected,
+}) => {
   const [phoneValue, setPhoneValue] = useState();
   const [paymentMethod, setPaymentMethod] = useState("paypal");
 
@@ -58,6 +64,8 @@ const PhoneModal = ({ price, phoneName, varientSelected }) => {
         price: price,
 
         varientSelected: varientSelected,
+        storageSelected: storageSelected,
+        networkSelected: networkSelected,
 
         name: name,
         email: email,

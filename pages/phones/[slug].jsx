@@ -2,17 +2,23 @@ import Footer from "@/resuable/Footer";
 import Navbar from "@/resuable/Navbar";
 import React, { useEffect, useState } from "react";
 import { client, urlFor } from "@/lib/client";
-import { AiOutlineCloseCircle } from "react-icons/ai";
-import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import PhoneModal from "@/components/phones/modal";
 import { FaInfoCircle } from "react-icons/fa";
 import {
+  AttInfo,
   brokenInfo,
+  constDeductionStorage,
+  costDeduction,
   damagedInfo,
   mintInfo,
   newInfo,
+  otherNetworkInfo,
+  sprintInfo,
+  tmobileInfo,
+  unlockedInfo,
   usedInfo,
+  verizonInfo,
 } from "@/components/data";
 
 const PhoneDetailsPage = ({ phone, phones }) => {
@@ -27,12 +33,19 @@ const PhoneDetailsPage = ({ phone, phones }) => {
   } = phone;
 
   const [varientSelected, setvarientSelected] = useState("");
+  const [networkSelected, setnetworkSelected] = useState("");
+  const [storageSelected, setstorageSelected] = useState("");
   const [errorVarient, setErrorVarient] = useState(false);
   const [price, setPrice] = useState("");
   const [varientInfo, setVarientInfo] = useState("");
+  const [networkInfo, setnetworkInfo] = useState("");
+
+  const [priceNetwork, setpriceNetwork] = useState("");
+  const [priceStorage, setpriceStorage] = useState("");
+  const [priceReal, setPriceReal] = useState("");
 
   const varientClicked = () => {
-    const btns = document.querySelectorAll(".btns .btn");
+    const btns = document.querySelectorAll(".varients .btns .btn");
     btns.forEach((btn) => {
       btn.addEventListener("click", () => {
         btns.forEach((btn) => {
@@ -45,22 +58,84 @@ const PhoneDetailsPage = ({ phone, phones }) => {
 
     switch (varientSelected) {
       case "New":
-        setPrice("$" + newPrice);
+        setPrice(newPrice);
         break;
       case "Mint":
-        setPrice("$" + mintPrice);
+        setPrice(mintPrice);
         break;
       case "Used":
-        setPrice("$" + usedPrice);
+        setPrice(usedPrice);
         break;
       case "Damaged":
-        setPrice("$" + damagedPrice);
+        setPrice(damagedPrice);
         break;
       case "Broken":
-        setPrice("$" + brokenPrice);
+        setPrice(brokenPrice);
         break;
       default:
         setPrice("");
+    }
+  };
+
+  const networkClicked = () => {
+    const btns = document.querySelectorAll(".network .btns .btn");
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btns.forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        btn.classList.add("active");
+        setnetworkSelected(btn.innerHTML);
+      });
+    });
+
+    switch (networkSelected) {
+      case "Unlocked":
+        setpriceNetwork(-costDeduction);
+        break;
+      case "AT-T":
+        setpriceNetwork(-costDeduction * 2);
+        break;
+      case "Verizon":
+        setpriceNetwork(-costDeduction * 3);
+        break;
+      case "Sprint":
+        setpriceNetwork(-costDeduction * 4);
+        break;
+      case "T-Mobile":
+        setpriceNetwork(-costDeduction * 5);
+        break;
+      case "Other":
+        setpriceNetwork(-costDeduction * 6);
+        break;
+      default:
+        setPrice("");
+    }
+  };
+
+  const storageClicked = () => {
+    const btns = document.querySelectorAll(".storage .btns .btn");
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btns.forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        btn.classList.add("active");
+        setstorageSelected(btn.innerHTML);
+      });
+    });
+
+    switch (storageSelected) {
+      case "256GB":
+        setpriceStorage("0");
+        break;
+
+      case "128GB":
+        setpriceStorage(-constDeductionStorage);
+        break;
+
+      default:
+        setpriceStorage(0);
     }
   };
 
@@ -101,6 +176,14 @@ const PhoneDetailsPage = ({ phone, phones }) => {
   }, []);
 
   useEffect(() => {
+    if (price + priceNetwork + priceStorage < 0) {
+      setPriceReal("$" + 0);
+    } else {
+      setPriceReal("$" + (price + priceNetwork));
+    }
+  }, [priceReal, priceNetwork, price, priceStorage]);
+
+  useEffect(() => {
     switch (varientSelected) {
       case "New":
         setVarientInfo(newInfo);
@@ -122,9 +205,36 @@ const PhoneDetailsPage = ({ phone, phones }) => {
         setVarientInfo(brokenInfo);
         break;
     }
-  }, [varientSelected]);
 
-  // tooltip
+    switch (networkSelected) {
+      case "Unlocked":
+        setnetworkInfo(unlockedInfo);
+        break;
+
+      case "Verizon":
+        setnetworkInfo(verizonInfo);
+        break;
+
+      case "AT-T":
+        setnetworkInfo(AttInfo);
+        break;
+
+      case "Sprint":
+        setnetworkInfo(sprintInfo);
+        break;
+
+      case "T-Mobile":
+        setnetworkInfo(tmobileInfo);
+        break;
+
+      case "Other":
+        setnetworkInfo(otherNetworkInfo);
+        break;
+
+      default:
+        setnetworkInfo("");
+    }
+  }, [varientSelected, networkSelected]);
 
   useEffect(() => {
     const tooltip = document.querySelector(".tooltip");
@@ -167,31 +277,73 @@ const PhoneDetailsPage = ({ phone, phones }) => {
               <p className="sub">My Phone Is:</p>
             </div>
 
-            <div className="btns">
-              <a onClick={() => varientClicked()} className="btn ">
-                New
-              </a>
-              <a onClick={() => varientClicked()} className="btn">
-                Mint
-              </a>
-              <a onClick={() => varientClicked()} className="btn">
-                Used
-              </a>
-              <a onClick={() => varientClicked()} className="btn">
-                Damaged
-              </a>
-              <a onClick={() => varientClicked()} className="btn">
-                Broken
-              </a>
+            <div className="varients">
+              <p className="sub">Condition:</p>
+              <div className="btns">
+                <a onClick={() => varientClicked()} className="btn ">
+                  New
+                </a>
+                <a onClick={() => varientClicked()} className="btn">
+                  Mint
+                </a>
+                <a onClick={() => varientClicked()} className="btn">
+                  Used
+                </a>
+                <a onClick={() => varientClicked()} className="btn">
+                  Damaged
+                </a>
+                <a onClick={() => varientClicked()} className="btn">
+                  Broken
+                </a>
+              </div>
+            </div>
+
+            <div className="network">
+              <p className="sub">Network:</p>
+              <div className="btns ">
+                <a onClick={() => networkClicked()} className="btn ">
+                  Unlocked
+                </a>
+                <a onClick={() => networkClicked()} className="btn">
+                  AT-T
+                </a>
+                <a onClick={() => networkClicked()} className="btn">
+                  Verizon
+                </a>
+                <a onClick={() => networkClicked()} className="btn">
+                  Sprint
+                </a>
+                <a onClick={() => networkClicked()} className="btn">
+                  T-Mobile
+                </a>
+                <a onClick={() => networkClicked()} className="btn">
+                  Other
+                </a>
+              </div>
+            </div>
+
+            <div className="storage">
+              <p className="sub">Storage:</p>
+              <div className="btns ">
+                <a onClick={() => storageClicked()} className="btn ">
+                  256GB
+                </a>
+                <a onClick={() => storageClicked()} className="btn">
+                  128GB
+                </a>
+              </div>
             </div>
 
             <div className="price">
               <div className="left">
                 <p>
-                  Price Range : <b>{price}</b>
+                  Price Range : <b>{priceReal}</b>
                 </p>
                 <p>
-                  Condtion: <b>{varientSelected}</b>
+                  Condtion:{" "}
+                  <b>
+                    {varientSelected}, {networkSelected}, {storageSelected}
+                  </b>
                 </p>
               </div>
 
@@ -206,6 +358,10 @@ const PhoneDetailsPage = ({ phone, phones }) => {
                 <div className="tooltip">
                   <p>
                     <b>{varientSelected}</b>: {varientInfo}
+                  </p>
+
+                  <p>
+                    <b>{networkSelected}</b>: {networkInfo}
                   </p>
                 </div>
               </div>
@@ -224,7 +380,7 @@ const PhoneDetailsPage = ({ phone, phones }) => {
 
         {/* modal */}
         <PhoneModal
-          price={price}
+          price={priceReal}
           phoneName={phoneName}
           varientSelected={varientSelected}
         />

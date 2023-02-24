@@ -98,4 +98,27 @@ Not clear for activation,
 Software issues,
 Bad IMEI`;
 
-export { newInfo, mintInfo, usedInfo, damagedInfo, brokenInfo };
+const unlockedInfo = `The device is fully compatible with ALL Networks,`;
+const verizonInfo = `The device works with Verizon Wireless network`;
+const AttInfo = `The device works with AT&T Network`;
+const sprintInfo = `The device works with Sprint Network`;
+const tmobileInfo = `The device works with T-Mobile Network`;
+const otherNetworkInfo = `The device works with any carriers likes, Xfinity, U.S. Cellular or from other countries.`;
+const costDeduction = 10;
+const constDeductionStorage = 15;
+
+export {
+  newInfo,
+  mintInfo,
+  usedInfo,
+  damagedInfo,
+  brokenInfo,
+  costDeduction,
+  unlockedInfo,
+  verizonInfo,
+  AttInfo,
+  sprintInfo,
+  tmobileInfo,
+  otherNetworkInfo,
+  constDeductionStorage,
+};

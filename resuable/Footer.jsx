@@ -75,6 +75,14 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      <p className="sub">&copy; 2021 {companyName}. All rights reserved.</p>
+      <p className="sub">
+        Made by{" "}
+        <a href="https://github.com/shrit1401" target="_blank">
+          Shrit1401
+        </a>
+      </p>
     </footer>
   );
 };

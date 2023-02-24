@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 const Sell = ({ phones }) => {
   const router = useRouter();
   const [filterItems, setfilterItems] = useState([]);
+  const [resultsareShowing, setresultsareShowing] = useState(false);
 
   const search = (e) => {
     const query = e.target.value.toLowerCase();
@@ -22,11 +23,13 @@ const Sell = ({ phones }) => {
   // when input not in focus remove results
   const removeResults = () => {
     setfilterItems([]);
+    setresultsareShowing(false);
   };
 
   // when input in focus show results
   const showResults = () => {
     setfilterItems(phones);
+    setresultsareShowing(true);
   };
 
   return (
@@ -50,7 +53,10 @@ const Sell = ({ phones }) => {
               size={24}
             />
 
-            <div className="results">
+            <div
+              className="results"
+              style={{ display: resultsareShowing ? "block" : "none" }}
+            >
               {filterItems.map((item) => {
                 return (
                   <div
