@@ -58,6 +58,10 @@ const PhoneModal = ({
       return alert("Please fill in all the fields");
     }
 
+    if (price === "$0") {
+      return alert("Please select a phone");
+    }
+
     try {
       const docRef = await addDoc(collection(db, "orders"), {
         phoneName: phoneName,

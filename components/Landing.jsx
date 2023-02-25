@@ -47,7 +47,9 @@ const Landing = () => {
             <FaArrowRight />
           </a>
         </div>
-        <div className="btn mobile">More Brands</div>
+        <div onClick={() => router.push("/sell")} className="btn mobile">
+          More Brands
+        </div>
       </div>
 
       <div className="right">

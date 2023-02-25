@@ -46,15 +46,6 @@ const PhoneDetailsPage = ({ phone, phones }) => {
 
   const varientClicked = () => {
     const btns = document.querySelectorAll(".varients .btns .btn");
-    btns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        btns.forEach((btn) => {
-          btn.classList.remove("active");
-        });
-        btn.classList.add("active");
-        setvarientSelected(btn.innerHTML);
-      });
-    });
 
     switch (varientSelected) {
       case "New":
@@ -75,6 +66,16 @@ const PhoneDetailsPage = ({ phone, phones }) => {
       default:
         setPrice("");
     }
+
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        setvarientSelected(btn.innerHTML);
+        btns.forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        btn.classList.add("active");
+      });
+    });
   };
 
   const networkClicked = () => {
@@ -127,7 +128,7 @@ const PhoneDetailsPage = ({ phone, phones }) => {
 
     switch (storageSelected) {
       case "256GB":
-        setpriceStorage("0");
+        setpriceStorage("");
         break;
 
       case "128GB":
@@ -135,7 +136,7 @@ const PhoneDetailsPage = ({ phone, phones }) => {
         break;
 
       default:
-        setpriceStorage(0);
+        setpriceStorage("");
     }
   };
 
@@ -153,6 +154,12 @@ const PhoneDetailsPage = ({ phone, phones }) => {
       }
     });
   };
+
+  useEffect(() => {
+    varientClicked();
+    networkClicked();
+    storageClicked();
+  }, []);
 
   if (errorVarient) {
     setTimeout(() => {
@@ -176,10 +183,12 @@ const PhoneDetailsPage = ({ phone, phones }) => {
   }, []);
 
   useEffect(() => {
+    // if price is less zero then set price to empty string
+
     if (price + priceNetwork + priceStorage < 0) {
-      setPriceReal("$" + 0);
+      setPriceReal("$0");
     } else {
-      setPriceReal("$" + (price + priceNetwork));
+      setPriceReal("$" + (price + priceNetwork + priceStorage));
     }
   }, [priceReal, priceNetwork, price, priceStorage]);
 
@@ -379,6 +388,8 @@ const PhoneDetailsPage = ({ phone, phones }) => {
         </div>
 
         {/* modal */}
+        {/* price real is 0 then alert  */}
+
         <PhoneModal
           price={priceReal}
           phoneName={phoneName}

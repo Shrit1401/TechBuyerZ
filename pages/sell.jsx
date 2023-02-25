@@ -3,7 +3,7 @@ import Footer from "@/resuable/Footer";
 import { client, urlFor } from "../lib/client";
 import Navbar from "@/resuable/Navbar";
 import { AiOutlineSearch } from "react-icons/ai";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { useRouter } from "next/router";
 
@@ -32,6 +32,14 @@ const Sell = ({ phones }) => {
     setresultsareShowing(true);
   };
 
+  useEffect(() => {
+    document.querySelector(".input input").onblur = () => {
+      setTimeout(() => {
+        removeResults();
+      }, 3000);
+    };
+  }, []);
+
   return (
     <div className="sell">
       <Navbar />
@@ -48,7 +56,6 @@ const Sell = ({ phones }) => {
               type="text"
               onChange={search}
               onFocus={showResults}
-              onBlur={removeResults}
               placeholder="Search for your device"
               size={24}
             />

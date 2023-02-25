@@ -1,6 +1,9 @@
 import { companyName } from "@/components/data";
 import { useRouter } from "next/router";
 import React from "react";
+import { AiFillMail } from "react-icons/ai";
+import { FaLocationArrow, FaMailBulk } from "react-icons/fa";
+import { GoLocation } from "react-icons/go";
 
 const Footer = () => {
   const router = useRouter();
@@ -13,39 +16,19 @@ const Footer = () => {
 
         <div className="footer__links">
           <div className="footer__links__item">
-            <h3>Company</h3>
+            <h3>Links</h3>
             <ul>
               <li>
-                <a href="#">About Us</a>
+                <a href="#">Home</a>
               </li>
               <li>
-                <a href="#">Contact Us</a>
+                <a href="#">Sell Devices</a>
               </li>
               <li>
-                <a href="#">Careers</a>
+                <a href="#">Sell Iphone 14 Pro</a>
               </li>
               <li>
-                <a href="#">Blog</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="footer__links">
-          <div className="footer__links__item">
-            <h3>Company</h3>
-            <ul>
-              <li>
-                <a href="#">About Us</a>
-              </li>
-              <li>
-                <a href="#">Contact Us</a>
-              </li>
-              <li>
-                <a href="#">Careers</a>
-              </li>
-              <li>
-                <a href="#">Blog</a>
+                <a href="#">Sell Samsung S23</a>
               </li>
             </ul>
           </div>
@@ -55,21 +38,18 @@ const Footer = () => {
         <div className="footer__links">
           <div className="footer__links__item">
             <h3>Customer Care</h3>
-            <ul>
-              <li>
-                <a href="#">FAQ</a>
+            <ul className="care">
+              <li
+                style={{
+                  paddingTop: "20px",
+                }}
+              >
+                <GoLocation size={48} /> Address: 20436 Rte 19 Ste 620 #348
+                Cranberry Township PA 16066 USA
               </li>
 
-              <li>
-                <a href="#">Shipping</a>
-              </li>
-
-              <li>
-                <a href="#">Returns</a>
-              </li>
-
-              <li>
-                <a href="#">Order Status</a>
+              <li style={{ paddingTop: "20px" }}>
+                <AiFillMail /> sales@buybacksurgeon.com
               </li>
             </ul>
           </div>

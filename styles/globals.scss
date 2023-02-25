@@ -498,7 +498,7 @@ footer {
 
     a {
       color: $text-color;
-      font-size: 20px;
+      font-size: 16px;
       transition: all 0.5s ease-in-out;
 
       &:hover {
@@ -535,6 +535,10 @@ footer {
   }
   li {
     list-style: none;
+  }
+
+  .sub {
+    font-size: 14px;
   }
 }
 
@@ -1155,6 +1159,21 @@ form {
   .network {
     .sub {
       margin: 10px 0;
+    }
+  }
+}
+
+.care {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    &:first-child {
+      width: 50%;
     }
   }
 }
