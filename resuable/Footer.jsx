@@ -18,17 +18,27 @@ const Footer = () => {
           <div className="footer__links__item">
             <h3>Links</h3>
             <ul>
-              <li>
+              <li onClick={() => router.push("/")}>
                 <a href="#">Home</a>
               </li>
-              <li>
+              <li onClick={() => router.push("/sell")}>
                 <a href="#">Sell Devices</a>
               </li>
               <li>
-                <a href="#">Sell Iphone 14 Pro</a>
+                <a
+                  href="#"
+                  onClick={() => router.push("/phones/iphone-13-pro-max")}
+                >
+                  Sell Iphone 13 Pro Max
+                </a>
               </li>
               <li>
-                <a href="#">Sell Samsung S23</a>
+                <a
+                  href="#"
+                  onClick={() => router.push("/phones/galaxy-s22-ultra")}
+                >
+                  Sell Samsung S22 Ultra
+                </a>
               </li>
             </ul>
           </div>
@@ -49,14 +59,20 @@ const Footer = () => {
               </li>
 
               <li style={{ paddingTop: "20px" }}>
-                <AiFillMail /> sales@buybacksurgeon.com
+                <a href="mailto:sales@buybacksurgeon.com">
+                  {" "}
+                  <AiFillMail /> sales@buybacksurgeon.com
+                </a>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <p className="sub">&copy; 2021 {companyName}. All rights reserved.</p>
+      <p className="sub">
+        &copy;
+        {new Date().getFullYear()} {companyName}. All rights reserved.
+      </p>
       <p className="sub">
         Made by{" "}
         <a href="https://github.com/shrit1401" target="_blank">
