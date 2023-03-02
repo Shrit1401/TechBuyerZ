@@ -1,4 +1,4 @@
-export const companyName = "TechBuyerZ";
+export const companyName = "ProphoneBuyer";
 
 export const brands = [
   {
@@ -104,8 +104,8 @@ const AttInfo = `The device works with AT&T Network`;
 const sprintInfo = `The device works with Sprint Network`;
 const tmobileInfo = `The device works with T-Mobile Network`;
 const otherNetworkInfo = `The device works with any carriers likes, Xfinity, U.S. Cellular or from other countries.`;
-const costDeduction = 10;
-const constDeductionStorage = 15;
+const costDeduction = 70;
+const constDeductionStorage = 80;
 
 export {
   newInfo,

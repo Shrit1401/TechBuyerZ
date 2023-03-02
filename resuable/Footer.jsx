@@ -24,22 +24,6 @@ const Footer = () => {
               <li onClick={() => router.push("/sell")}>
                 <a href="#">Sell Devices</a>
               </li>
-              <li>
-                <a
-                  href="#"
-                  onClick={() => router.push("/phones/iphone-13-pro-max")}
-                >
-                  Sell Iphone 13 Pro Max
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  onClick={() => router.push("/phones/galaxy-s22-ultra")}
-                >
-                  Sell Samsung S22 Ultra
-                </a>
-              </li>
             </ul>
           </div>
         </div>

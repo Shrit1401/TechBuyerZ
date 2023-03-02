@@ -38,7 +38,7 @@ const SellGird = ({ phones }) => {
                   ? "block"
                   : "none",
             }}
-            onClick={() => router.push(`/phones/${phone.slug.current}`)}
+            onClick={() => router.push(`/sell/${phone.slug.current}`)}
           >
             <SellBlock key={phone._id} img={urlFor(phone.phoneImage)} />
             <h2>{phone.phoneName}</h2>
