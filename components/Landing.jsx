@@ -3,6 +3,7 @@ import React from "react";
 import { AiOutlineCheck, AiOutlineSearch } from "react-icons/ai";
 import { FaArrowRight } from "react-icons/fa";
 import Block from "../resuable/block";
+import { brands } from "./data";
 
 const Landing = () => {
   const router = useRouter();
@@ -26,21 +27,9 @@ const Landing = () => {
         </div>
 
         <div className="brands">
-          <Block
-            key="apple"
-            image="https://cdn.sanity.io/images/wc54ztom/production/5fc8f45a79332325f61c0453a7a44fbd2203e647-144x144.png"
-            url="sell/iphone-13-pro-max"
-          />
-          <Block
-            key="apple"
-            image="https://cdn.sanity.io/images/wc54ztom/production/18bb49dc9238d77038f5f51cfab3472b1ea82a7e-172x172.png"
-            url="sell/galaxy-s22-ultra"
-          />
-          <Block
-            key="apple"
-            image="https://cdn.sanity.io/images/wc54ztom/production/c8eead700704369438090a2da3a5a2c22c1ca627-239x167.png"
-            url="sell/macbook-pro-14-and-16"
-          />
+          <Block key="apple" image={brands[0].svg} url="sellSamsung" />
+          <Block key="apple" image={brands[1].svg} url="sellIphone" />
+          <Block key="apple" image={brands[2].svg} url="sellMac" />
 
           <a href="#" onClick={() => router.push("/sell")} className="more">
             <p>

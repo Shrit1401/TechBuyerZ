@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { useRouter } from "next/router";
 
-const Sell = ({ phones }) => {
+const sellIphone = ({ phones }) => {
   const router = useRouter();
   const [filterItems, setfilterItems] = useState([]);
   const [resultsareShowing, setresultsareShowing] = useState(false);
@@ -39,7 +39,6 @@ const Sell = ({ phones }) => {
       }, 3000);
     };
   }, []);
-
   return (
     <div className="sell">
       <Navbar />
@@ -96,7 +95,7 @@ const Sell = ({ phones }) => {
         </div>
         <SellGird
           phones={phones}
-          iphoneOnly={false}
+          iphoneOnly={true}
           macOnly={false}
           samsungOnly={false}
         />
@@ -115,4 +114,4 @@ export const getServerSideProps = async () => {
   };
 };
 
-export default Sell;
+export default sellIphone;

@@ -14,8 +14,6 @@ export default function Home() {
         <Landing />
         <Working />
         <Faq />
-
-        <Why />
         <Footer />
       </main>
     </>
