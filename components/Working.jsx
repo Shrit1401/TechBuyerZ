@@ -13,24 +13,27 @@ const Working = () => {
           <img src="/step/one.png" alt="steps" />
           <h3>Check Price</h3>
           <p>
-            Select your device & tell us about its current condition, and our
-            advanced AI tech will tailor make the perfect price for you.
+            Provide us with your personal information and select your preferred
+            payment method.
           </p>
         </div>
         <div className="step">
           <img src="/step/two.png" alt="steps" />
           <h3>Schedule Pickup</h3>
           <p>
-            Book a free pickup from your home or work at a time slot that best
-            suits your convenience.
+            Once you're done with step one, please go ahead and send us your
+            phone, iPad, or MacBook. If what we receive matches the details you
+            gave us for your quote, we'll take care of the shipping costs for
+            you.
           </p>
         </div>
         <div className="step">
           <img src="/step/three.png" alt="steps" />
-          <h3>Get Paid</h3>
+          <h3>Free Shipping</h3>
           <p>
-            Did we mention you get paid as soon as our executive picks up your
-            device? It’s instant payment all the way!
+            After receiving your product, we will process your payment within
+            24-48 hours, which will include the agreed amount for your device
+            and the cost of shipping
           </p>
         </div>
       </div>
