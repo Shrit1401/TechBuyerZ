@@ -7,6 +7,9 @@ import Navbar from "@/resuable/Navbar";
 import React from "react";
 
 export default function Home() {
+  console.info(
+    `This Website is made by @Shrit1401 (https://github.com/Shrit1401)'`
+  );
   return (
     <>
       <main>

@@ -41,12 +41,12 @@ const Footer = () => {
         &copy;
         {new Date().getFullYear()} {companyName}. All rights reserved.
       </p>
-      <p className="sub">
+      {/* <p className="sub">
         Made by{" "}
         <a href="https://github.com/shrit1401" target="_blank">
           Shrit1401
         </a>
-      </p>
+      </p> */}
     </footer>
   );
 };
