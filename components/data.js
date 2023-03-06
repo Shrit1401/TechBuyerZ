@@ -32,25 +32,17 @@ export const phoneCompany = [
 
 export const faq = [
   {
-    question: "What is TechBuyerZ?",
+    question: "What is ProPhoneBuyer?",
     answer:
-      "TechBuyerZ is a platform that helps you to buy the best tech products at the best price. We have a team of experts who research and review the products and then recommend the best ones to you.",
+      "ProPhoneBuyer is a platform that helps you to buy the best tech products at the best price. We have a team of experts who research and review the products and then recommend the best ones to you.",
   },
   {
-    question: "How does TechBuyerZ work?",
-    answer:
-      "TechBuyerZ is a platform that helps you to buy the best tech products at the best price. We have a team of experts who research and review the products and then recommend the best ones to you.",
-  },
-  {
-    question: "How does TechBuyerZ work?",
-
-    answer:
-      "TechBuyerZ is a platform that helps you to buy the best tech products at the best price. We have a team of experts who research and review the products and then recommend the best ones to you.",
-  },
-  {
-    question: "How does TechBuyerZ work?",
-    answer:
-      "TechBuyerZ is a platform that helps you to buy the best tech products at the best price. We have a team of experts who research and review the products and then recommend the best ones to you.",
+    question: "How does ProPhoneBuyer work?",
+    answer: `1-check your price
+2- put your info and the payment method to receive your money
+3-go to USPS and Ship your phone to our address
+4-we check the phone if all the info is right
+5-we pay you in 24-48 hours (price of your phone +your shipping cost that you paid)`,
   },
 ];
 

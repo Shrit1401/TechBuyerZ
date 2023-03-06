@@ -16,7 +16,6 @@ const Footer = () => {
 
         <div className="footer__links">
           <div className="footer__links__item">
-            <h3>Links</h3>
             <ul>
               <li onClick={() => router.push("/")}>
                 <a href="#">Home</a>
@@ -24,29 +23,14 @@ const Footer = () => {
               <li onClick={() => router.push("/sell")}>
                 <a href="#">Sell Devices</a>
               </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* customer care */}
-        <div className="footer__links">
-          <div className="footer__links__item">
-            <h3>Customer Care</h3>
-            <ul className="care">
-              <li
-                style={{
-                  paddingTop: "20px",
-                }}
-              >
-                <GoLocation size={48} /> Address: 20436 Rte 19 Ste 620 #348
-                Cranberry Township PA 16066 USA
+              <li onClick={() => router.push("/sellMac")}>
+                <a href="#">Sell Mac</a>
               </li>
-
-              <li style={{ paddingTop: "20px" }}>
-                <a href="mailto:sales@buybacksurgeon.com">
-                  {" "}
-                  <AiFillMail /> sales@buybacksurgeon.com
-                </a>
+              <li onClick={() => router.push("/sellIphone")}>
+                <a href="#">Sell Iphone</a>
+              </li>
+              <li onClick={() => router.push("/sellSamsung")}>
+                <a href="#">Sell Samsung</a>
               </li>
             </ul>
           </div>
